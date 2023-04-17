@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#005C63">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="#001C5D8F"
+        android:text="Games"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#00FFEE"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Phone"
+        android:layout_width="190dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="Phone"
+        app:backgroundTint="#004B51"
+        app:iconPadding="8dp"
+        app:strokeColor="#00FFEE"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/Names"
+        android:layout_width="190dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="300dp"
+        android:text="Names"
+        app:backgroundTint="#004B51"
+        app:strokeColor="#00FFEE"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/Address"
+        android:layout_width="190dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:text="Address"
+        app:backgroundTint="#004B51"
+        app:strokeColor="#00FFEE"
+        app:strokeWidth="2dp" />
+
+
+</RelativeLayout>
