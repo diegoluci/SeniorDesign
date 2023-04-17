@@ -17,7 +17,7 @@ public class BootPage extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intentB = new Intent(BootPage.this, MainActivity.class);
+                Intent intentB = new Intent(BootPage.this, LoginActivity.class);
                 startActivity(intentB);
                 finish();
             }
