@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.learningkidsapp"
-        minSdk 21
+        minSdk 19
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -38,8 +38,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    // Add this line for the AndroidX Security Library
-    implementation 'androidx.security:security-crypto:1.1.0-alpha03'
-
 }
