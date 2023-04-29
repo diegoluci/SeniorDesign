@@ -14,13 +14,10 @@ public class BootPage extends AppCompatActivity {
         setContentView(R.layout.activity_boot_page);
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intentB = new Intent(BootPage.this, LoginActivity.class);
-                startActivity(intentB);
-                finish();
-            }
+        handler.postDelayed(() -> {
+            Intent intentB = new Intent(BootPage.this, LoginActivity.class);
+            startActivity(intentB);
+            finish();
         }, 2700);
     }
 }
