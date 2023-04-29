@@ -57,5 +57,16 @@
         app:strokeColor="#00FFEE"
         app:strokeWidth="2dp" />
 
+    <ImageButton
+        android:id="@+id/Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="13dp"
+        android:background="@color/black"
+        app:srcCompat="@drawable/baseline_settings_24" />
+
 
 </RelativeLayout>

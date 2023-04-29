@@ -6,12 +6,14 @@ import android.provider.Telephony;
 import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
     private Button PhoneB;
     private Button NamesB;
     private Button AddressB;
 
+    private ImageButton SettingsB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SettingsB = (ImageButton) findViewById(R.id.Settings);
+
+        SettingsB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { openSettings();
+            }
+        });
+
     }
     public void openPhoneGame() {
         Intent intentP = new Intent(this, PhoneGame.class);
@@ -55,5 +65,10 @@ public class MainActivity extends AppCompatActivity {
     public void openAddrGame() {
         Intent intentA = new Intent(this, AddrGame.class);
         startActivity(intentA);
+    }
+
+    public void openSettings() {
+        Intent intentS = new Intent(this, Settings.class);
+        startActivity(intentS);
     }
 }
