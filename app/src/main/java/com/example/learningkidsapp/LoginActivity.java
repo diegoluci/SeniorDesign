@@ -1,14 +1,14 @@
 package com.example.learningkidsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,12 +17,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+
+
     TextInputEditText etLoginEmail;
     TextInputEditText etLoginPassword;
     TextView tvRegisterHere;
     Button btnLogin;
 
     FirebaseAuth mAuth;
+    EncryptedSharedPrefsHelper encryptedSharedPrefHelpers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +36,27 @@ public class LoginActivity extends AppCompatActivity {
         etLoginPassword = findViewById(R.id.etLoginPass);
         tvRegisterHere = findViewById(R.id.tvRegisterHere);
         btnLogin = findViewById(R.id.btnLogin);
-
         mAuth = FirebaseAuth.getInstance();
+        encryptedSharedPrefHelpers = new EncryptedSharedPrefsHelper(getApplicationContext());
+
+        if (encryptedSharedPrefHelpers.isLoggedIn()){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
 
         btnLogin.setOnClickListener(view -> {
             loginUser();
         });
+
+
         tvRegisterHere.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
+
     }
+
+
     private void loginUser(){
         String email = etLoginEmail.getText().toString();
         String password = etLoginPassword.getText().toString();
@@ -60,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                        String authToken =mAuth.getCurrentUser().getUid();
+                        encryptedSharedPrefHelpers.saveAuthToken(authToken);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }else{
                         Toast.makeText(LoginActivity.this, "Log in Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

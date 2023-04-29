@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "677905782968",
+    "project_id": "fir-auth-a3514",
+    "storage_bucket": "fir-auth-a3514.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677905782968:android:8c5da2351810c255a3bc4d",
+        "android_client_info": {
+          "package_name": "com.example.firebaseauthdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677905782968-m7vm6ljm2nsm1uss6knaikndg5fi82ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIFBMpuITmK00S18QwaS0VUZFrnDDytJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677905782968-m7vm6ljm2nsm1uss6knaikndg5fi82ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677905782968:android:35daccf9891f9ad1a3bc4d",
+        "android_client_info": {
+          "package_name": "com.example.learningkidsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677905782968-m7vm6ljm2nsm1uss6knaikndg5fi82ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIFBMpuITmK00S18QwaS0VUZFrnDDytJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677905782968-m7vm6ljm2nsm1uss6knaikndg5fi82ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
