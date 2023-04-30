@@ -8,9 +8,12 @@
     android:background="#005C63">
 
     <TextView
+        android:id="@+id/Digits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Address Game"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="TextView" />
 
 </RelativeLayout>

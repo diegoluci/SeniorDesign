@@ -17,7 +17,7 @@ public class PhoneGame extends AppCompatActivity {
         test = findViewById(R.id.Digits);
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
-        String phone = sp.getString("Phone", "");
+        String phone = sp.getString("Phone", "   ");
         String shortphone = phone.substring(0,3);
         test.setText(shortphone);
     }
