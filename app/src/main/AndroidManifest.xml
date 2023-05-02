@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +12,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningKidsApp"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".Congrats"
+            android:exported="false" />
         <activity
             android:name=".Settings"
             android:exported="false" />
@@ -26,9 +29,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".GameWin"
-            android:exported="false" />
-        <activity
             android:name=".AddrGame"
             android:exported="false" />
         <activity
@@ -39,7 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".BootPage"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
