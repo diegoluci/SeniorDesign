@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 
 public class EncryptedSharedPrefsHelper {
+
+    //Shared Preferences file
     private static final String SHARED_PREFS_FILE_NAME = "com.example.learningkidsapp.SHARED_PREFS";
     private static final String AUTH_TOKEN_KEY = "auth_token";
 

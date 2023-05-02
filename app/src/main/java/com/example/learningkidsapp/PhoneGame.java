@@ -13,23 +13,49 @@ import android.widget.TextView;
 
 public class PhoneGame extends AppCompatActivity {
 
+    //Initializing Variables
     Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bstar,bhash,bcall;
     ImageButton delbtn;
     TextView tv;
     String CurrentString = "";
-    String Shortphone = "";
+    String Area = "";
+    String Middle = "";
+    String Last = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_game);
 
-        TextView UserNum;
-        UserNum = findViewById(R.id.UserNum);
+        //Initializing XML Element for users number from settings.java
+        TextView userNum;
+        userNum = findViewById(R.id.UserNum);
+
+        //Fetching Data From MyUserPrefs (Stored Data from Settings.java)
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
         String phone = sp.getString("Phone", "");
-        Shortphone = phone.substring(0,3);
-        UserNum.setText(Shortphone);
 
+        //If their information from settings page is empty, they are redirected to settings page to input it
+        if (phone.isEmpty())
+        {
+            Intent intent = new Intent( this, Settings.class);
+            startActivity(intent);
+            finish();
+        }
+        //If their information is not empty, the string is updated to display the users first 3 digits
+        else {
+            if (phone.length() >=3)
+            {
+                Area = phone.substring(0,3);
+                Middle = phone.substring(3,6);
+                Last = phone.substring(6,10);
+            }
+        }
+
+        //XML is updated to display users Area code
+        userNum.setText(Area);
+
+        //Initializing XML Elements
         b0 = findViewById(R.id.b0); b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2); b3 = findViewById(R.id.b3);
         b4 = findViewById(R.id.b4); b5 = findViewById(R.id.b5);
@@ -40,6 +66,7 @@ public class PhoneGame extends AppCompatActivity {
 
         tv = findViewById(R.id.txtphone);
 
+        //Giving Buttons their functionality
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,6 +152,7 @@ public class PhoneGame extends AppCompatActivity {
             }
         });
 
+        //On click of delete button, current string's length is subtracted by 1 (Deleting last input)
         delbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,10 +166,21 @@ public class PhoneGame extends AppCompatActivity {
         bcall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                     if (CurrentString.equals(Shortphone)) {
-                         Intent intent = new Intent(PhoneGame.this, MainActivity.class);
-                         startActivity(intent);
-                     }
+
+            //If their answer matches the area code, middle 3 digits are displayed
+            if(CurrentString.equals(Area)) {
+                userNum.setText(Middle);
+            }
+            //If their answer matches the area code + middle 3 digits, last 4 digits are displayed
+            if(CurrentString.equals(Area + Middle)){
+                userNum.setText(Last);
+            }
+            //if their answer matches the all 3 parses of phone number, game is finished
+            if(CurrentString.equals(Area+ Middle + Last)) {
+                Intent intent = new Intent(PhoneGame.this, Congrats.class);
+                startActivity(intent);
+            }
+
             }
         });
 

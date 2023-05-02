@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
+        //initializing variables
         EditText fname, lname, phone, address;
         Button save, home;
         SharedPreferences sp;
@@ -23,6 +24,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Initializing XML elements
         fname = findViewById(R.id.FirstName);
         lname = findViewById(R.id.LastName);
         phone = findViewById(R.id.PhoneNumber);
@@ -30,11 +32,13 @@ public class Settings extends AppCompatActivity {
         save = findViewById(R.id.Save);
         home = findViewById(R.id.Home);
 
+        //Declaring Shared Preferences
        sp = getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Assigns each buttons to a string of their own
                 fnameStr = fname.getText().toString();
                 lnameStr = lname.getText().toString();
                 phoneStr = phone.getText().toString();
@@ -51,6 +55,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        //Once user saves their info they can go to Main Activity
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

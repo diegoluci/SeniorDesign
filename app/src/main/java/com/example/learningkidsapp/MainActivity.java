@@ -9,15 +9,19 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Initializing Buttons
     private Button PhoneB;
     private Button NamesB;
     private Button AddressB;
-
     private ImageButton SettingsB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Initializing XML Elements and Giving the buttons onClick method
 
         PhoneB = (Button) findViewById(R.id.Phone);
         PhoneB.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    //Intents for each button to open their respective activity
+
     public void openPhoneGame() {
         Intent intentP = new Intent(this, PhoneGame.class);
         startActivity(intentP);
