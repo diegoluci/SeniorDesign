@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    //Initializing variables
     TextInputEditText etRegEmail;
     TextInputEditText etRegPassword;
     TextView tvLoginHere;
@@ -30,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //initializing XML elements
         etRegEmail = findViewById(R.id.etRegEmail);
         etRegPassword = findViewById(R.id.etRegPass);
         tvLoginHere = findViewById(R.id.tvLoginHere);
@@ -39,11 +42,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setOnClickListener(view -> createUser());
 
+        //if user registered they click this to login
         tvLoginHere.setOnClickListener(view -> startActivity(new Intent(RegisterActivity.this, LoginActivity.class)));
 
     }
 
+    //Function To create user
     private void createUser() {
+
         String email = etRegEmail.getText().toString();
         String password = etRegPassword.getText().toString();
 

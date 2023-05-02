@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-
+    //Initializing Variables
     TextInputEditText etLoginEmail;
     TextInputEditText etLoginPassword;
     TextView tvRegisterHere;
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //Initializing XML Elements
         etLoginEmail = findViewById(R.id.etLoginEmail);
         etLoginPassword = findViewById(R.id.etLoginPass);
         tvRegisterHere = findViewById(R.id.tvRegisterHere);
@@ -41,16 +41,18 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         encryptedSharedPrefHelpers = new EncryptedSharedPrefsHelper(getApplicationContext());
 
+        //If user has signed in, they are directed to Main Activity
         if (encryptedSharedPrefHelpers.isLoggedIn()){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
 
+        //Login Button
         btnLogin.setOnClickListener(view -> {
             loginUser();
         });
 
-
+        //Hyperlink for Registration
         tvRegisterHere.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
@@ -58,11 +60,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    //Login User Function
     private void loginUser(){
         String email = etLoginEmail.getText().toString();
         String password = etLoginPassword.getText().toString();
 
+        //Error Message if Email/Password Fields are empty
         if (TextUtils.isEmpty(email)){
             etLoginEmail.setError("Email cannot be empty");
             etLoginEmail.requestFocus();
@@ -70,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
             etLoginPassword.setError("Password cannot be empty");
             etLoginPassword.requestFocus();
         }else{
+            //If user enters correct email and address, User will be logged in successfully, otherwise displayed with Log In Error
+
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
