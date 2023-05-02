@@ -12,7 +12,7 @@ public class BootPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boot_page);
-
+        //Creates scene to display BootPage for 2.7 seconds, after this, user is directed to the login activity
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intentB = new Intent(BootPage.this, LoginActivity.class);
