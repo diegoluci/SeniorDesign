@@ -4,16 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#005C63">
+    android:background="#005C63"
+    tools:context=".Congrats">
 
     <TextView
-        android:id="@+id/Digits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:text="TextView" />
+        android:layout_marginTop="242dp"
+        android:background="#001C5D8F"
+        android:text="Well Done!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#00FFEE"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="206dp" />
 
 </RelativeLayout>
