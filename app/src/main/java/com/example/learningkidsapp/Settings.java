@@ -101,4 +101,21 @@ public class Settings extends AppCompatActivity {
 
 
     }
+         @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Check if the user is going back to the main activity
+        if (!isChangingConfigurations() && !isFinishing()) {
+            // The user is navigating back to the main activity
+            // Start the BackgroundMusicService if it's not already running
+            Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
+            startService(serviceIntent);
+        } else {
+            // The user is exiting the app or changing configurations
+            // Stop the BackgroundMusicService
+            Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
+            stopService(serviceIntent);
+        }
+    }
 }
