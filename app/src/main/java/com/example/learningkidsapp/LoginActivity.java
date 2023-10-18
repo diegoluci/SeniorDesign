@@ -40,8 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         mAuth = FirebaseAuth.getInstance();
         encryptedSharedPrefHelpers = new EncryptedSharedPrefsHelper(getApplicationContext());
-
-
+        
         //Login Button
         btnLogin.setOnClickListener(view -> {
             loginUser();
