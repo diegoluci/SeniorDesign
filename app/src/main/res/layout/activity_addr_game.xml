@@ -4,23 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#005C63"
-    tools:context=".Congrats">
+    tools:context=".MainActivity"
+    android:background="#274c43">
 
     <TextView
+        android:id="@+id/Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="242dp"
-        android:background="#001C5D8F"
-        android:text="Well Done!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#00FFEE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="206dp" />
+        android:layout_marginTop="67dp"
+        android:text=""
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="Type the name you see:"
+        android:fontFamily="@font/chalk"
+        android:textAllCaps="false"
+        android:textColor="#FFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="235dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:text="" />
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="301dp"
+        android:fontFamily="@font/chalk"
+        android:text="Check Answer"
+        app:backgroundTint="#00004B51"
+        app:iconPadding="8dp"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2dp" />
 
 </RelativeLayout>

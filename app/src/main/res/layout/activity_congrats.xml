@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#005C63"
+    android:background="#274c43"
     tools:context=".Congrats">
 
     <TextView
@@ -16,7 +16,8 @@
         android:background="#001C5D8F"
         android:text="Well Done!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#00FFEE"
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

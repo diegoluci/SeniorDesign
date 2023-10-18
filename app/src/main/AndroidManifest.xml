@@ -13,8 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningKidsApp"
         tools:targetApi="31" >
-
-        <service android:name=".BackgroundMusicService" />
         <activity
             android:name=".Congrats"
             android:exported="false" />

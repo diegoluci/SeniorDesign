@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#274c43"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".LoginActivity"
-    android:background="#005C63">
-
+    tools:context=".LoginActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="16dp"
+            android:fontFamily="@font/chalk"
             android:gravity="center_horizontal"
             android:text="Login"
             android:textColor="@color/white"
@@ -30,22 +30,25 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLoginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/chalk"
                 android:hint="Email"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
@@ -53,8 +56,11 @@
                 android:id="@+id/etLoginPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/chalk"
                 android:hint="Password"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -62,7 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Login"/>
+            android:fontFamily="@font/chalk"
+            android:text="Login"
+            app:backgroundTint="#274C43" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,8 +82,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/chalk"
                 android:text="Not registered yet?"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -83,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
+                android:fontFamily="@font/chalk"
                 android:text="Register here"
                 android:textColor="@color/white"
                 android:textSize="20sp"

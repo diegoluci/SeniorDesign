@@ -55,6 +55,7 @@ public class AddrGame extends AppCompatActivity {
                 StreetNum = addr.substring(0,firstSpaceIndex);
                 StreetName = addr.substring(firstSpaceIndex + 1, secondSpaceIndex);
                 StreetType = addr.substring(secondSpaceIndex +1);
+                question.setText("Enter the Street Number You See:");
             }
         }
 
@@ -67,11 +68,13 @@ public class AddrGame extends AppCompatActivity {
                 //If their answer matches street number, XML is updated to show street name
                 String answer = UserAnswer.getText().toString();
                 if (answer.equals(StreetNum)) {
+                    question.setText("Enter the Street name you See:");
                     address.setText(StreetName);
                     UserAnswer.setText("");
                 }
                 //If their answer matches street name, XML is updated to show street type
                 if(answer.equals(StreetName)) {
+                    question.setText("Enter the type of street you see:");
                     address.setText(StreetType);
                     UserAnswer.setText("");
                 }

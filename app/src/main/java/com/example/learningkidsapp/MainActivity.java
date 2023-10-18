@@ -1,25 +1,27 @@
 package com.example.learningkidsapp;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 import android.widget.Button;
+import android.os.Bundle;
 import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
-import android.media.MediaPlayer;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Initializing Buttons
     private Button PhoneB;
     private Button NamesB;
     private Button AddressB;
     private ImageButton SettingsB;
-    private MediaPlayer mediaPlayer;  // Declare MediaPlayer as a member variable
-    private boolean isMusicServiceRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Initializing XML Elements and Giving the buttons onClick method
 
         PhoneB = (Button) findViewById(R.id.Phone);
         PhoneB.setOnClickListener(new View.OnClickListener() {
@@ -46,40 +48,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         SettingsB = (ImageButton) findViewById(R.id.Settings);
+
         SettingsB.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                openSettings();
+            public void onClick(View view) { openSettings();
             }
         });
 
-        // Start the BackgroundMusicService
-        boolean isMusicServiceRunning = false;
-        Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
-        startService(serviceIntent);
-        isMusicServiceRunning = true;
-
-
-        // Call the playSong method to start playing the song
-
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+    //Intents for each button to open their respective activity
 
-        // Stop the BackgroundMusicService when your activity is paused
-
-        if (isFinishing()) {
-            Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
-            stopService(serviceIntent);
-            isMusicServiceRunning = false;
-        }
-        }
-
-
-
-    // Intents for each button to open their respective activity
     public void openPhoneGame() {
         Intent intentP = new Intent(this, PhoneGame.class);
         startActivity(intentP);
@@ -99,7 +78,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intentS = new Intent(this, Settings.class);
         startActivity(intentS);
     }
-
-    // Method to play the song
-
 }

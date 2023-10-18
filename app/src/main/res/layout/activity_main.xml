@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#005C63">
+    android:background="#274c43">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,10 +14,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:background="#001C5D8F"
+        android:fontFamily="@font/chalk"
         android:text="Games"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#00FFEE"
-        android:textStyle="bold" />
+        android:textColor="#FFFF"
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/Phone"
@@ -26,10 +28,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
+        android:fontFamily="@font/chalk"
         android:text="Phone"
-        app:backgroundTint="#004B51"
+        android:textColor="#FFFF"
+        app:backgroundTint="#00000000"
         app:iconPadding="8dp"
-        app:strokeColor="#00FFEE"
+        app:strokeColor="#FFFFFF"
         app:strokeWidth="2dp" />
 
     <Button
@@ -40,9 +44,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="112dp"
         android:layout_marginTop="300dp"
+        android:fontFamily="@font/chalk"
         android:text="Names"
-        app:backgroundTint="#004B51"
-        app:strokeColor="#00FFEE"
+        android:textColor="#FFFF"
+        app:backgroundTint="#00004B51"
+        app:strokeColor="#FFFFFF"
         app:strokeWidth="2dp" />
 
     <Button
@@ -52,10 +58,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
+        android:fontFamily="@font/chalk"
         android:text="Address"
-        app:backgroundTint="#004B51"
-        app:strokeColor="#00FFEE"
-        app:strokeWidth="2dp" />
+        android:textColor="#FFFF"
+        app:backgroundTint="#00004B51"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2dp"
+
+    />
 
     <ImageButton
         android:id="@+id/Settings"
@@ -66,7 +76,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="13dp"
         android:background="#00332424"
-        app:srcCompat="@drawable/baseline_settings_24" />
+        app:srcCompat="@drawable/ic_settings" />
 
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#005C63"
+    android:background="#274c43"
     tools:context=".Settings">
 
     <EditText
@@ -17,6 +17,8 @@
         android:ems="10"
         android:inputType="phone"
         android:text=""
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="145dp" />
 
     <EditText
@@ -29,6 +31,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="234dp" />
 
     <EditText
@@ -41,6 +45,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="425dp" />
 
     <TextView
@@ -50,6 +56,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         android:text="Phone"
         tools:layout_editor_absoluteY="110dp" />
 
@@ -61,6 +69,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
         android:text="First Name"
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="199dp" />
 
     <TextView
@@ -71,6 +81,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="280dp"
         android:text="Last Name"
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="289dp" />
 
     <EditText
@@ -83,6 +95,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="329dp" />
 
@@ -94,6 +108,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="380dp"
         android:text="Address"
+        android:fontFamily="@font/chalk"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="384dp" />
 
     <Button
@@ -103,10 +119,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="480dp"
+        android:fontFamily="@font/chalk"
         android:text="Save"
-        app:backgroundTint="#004B51"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#00004B51"
         app:iconPadding="8dp"
-        app:strokeColor="#00FFEE"
+        app:strokeColor="#FFFFFF"
         app:strokeWidth="2dp"
         tools:layout_editor_absoluteY="493dp" />
 
@@ -117,12 +135,29 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="560dp"
+        android:fontFamily="@font/chalk"
         android:text="Go Home"
-        app:backgroundTint="#004B51"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#00004B51"
         app:iconPadding="8dp"
-        app:strokeColor="#00FFEE"
+        app:strokeColor="#FFFFFF"
         app:strokeWidth="2dp"
         tools:layout_editor_absoluteY="493dp" />
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Home"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Log Out"
+        android:fontFamily="@font/chalk"
+        app:backgroundTint="#00004B51"
+        app:iconPadding="8dp"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2dp"
+        android:layout_marginBottom="16dp" />
+
 
     <Button
         android:id="@+id/btnLogout"
