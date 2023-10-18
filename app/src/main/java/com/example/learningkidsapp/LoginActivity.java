@@ -41,11 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         encryptedSharedPrefHelpers = new EncryptedSharedPrefsHelper(getApplicationContext());
 
-        //If user has signed in, they are directed to Main Activity
-        if (encryptedSharedPrefHelpers.isLoggedIn()){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
 
         //Login Button
         btnLogin.setOnClickListener(view -> {
