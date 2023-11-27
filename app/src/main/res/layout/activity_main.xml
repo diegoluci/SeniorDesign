@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#274c43">
+    android:background="#03AFFD">
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:textColor="#FFFF"
         app:backgroundTint="#00004B51"
         app:strokeColor="#FFFFFF"
-        app:strokeWidth="2dp"
+        app:strokeWidth="2dp" />
 
     />
 
@@ -77,6 +77,7 @@
         android:layout_marginEnd="13dp"
         android:background="#00332424"
         app:srcCompat="@drawable/ic_settings" />
+
 
 
 </RelativeLayout>

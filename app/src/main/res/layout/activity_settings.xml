@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#274c43"
+    android:background="#03AFFD"
     tools:context=".Settings">
 
     <EditText
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="90dp"
         android:ems="10"
         android:inputType="phone"
         android:text=""
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/chalk"
         android:textColor="#FFFFFF"
         android:text="Phone"
@@ -67,19 +67,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="160dp"
         android:text="First Name"
         android:fontFamily="@font/chalk"
         android:textColor="#FFFFFF"
         tools:layout_editor_absoluteY="199dp" />
-
+D
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="270dp"
         android:text="Last Name"
         android:fontFamily="@font/chalk"
         android:textColor="#FFFFFF"
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="310dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="490dp"
         android:fontFamily="@font/chalk"
         android:text="Save"
         android:textColor="#FFFFFF"
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="545dp"
         android:fontFamily="@font/chalk"
         android:text="Go Home"
         android:textColor="#FFFFFF"
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Home"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="1dp"
         android:text="Log Out"
         android:fontFamily="@font/chalk"
         app:backgroundTint="#00004B51"
@@ -158,6 +158,45 @@
         app:strokeWidth="2dp"
         android:layout_marginBottom="16dp" />
 
+    <RadioGroup
+        android:id="@+id/difficultyRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/easyDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Easy"
+            android:textSize="18sp"
+            android:fontFamily="@font/chalk"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+
+        <RadioButton
+            android:id="@+id/mediumDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"
+            android:textSize="18sp"
+            android:fontFamily="@font/chalk"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+
+        <RadioButton
+            android:id="@+id/hardDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hard"
+            android:textSize="18sp"
+            android:fontFamily="@font/chalk"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </RadioGroup>
 
 
 
