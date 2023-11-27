@@ -9,15 +9,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
-        //initializing variables
-        EditText fname, lname, phone, address;
-        Button save, home, btnLogout;
-        SharedPreferences sp;
-        String fnameStr, lnameStr, phoneStr, addrStr;
+    //initializing variables
+    EditText fname, lname, phone, address;
+    Button save, home, btnLogout;
+    SharedPreferences sp;
+    String fnameStr, lnameStr, phoneStr, addrStr;
+
+    RadioGroup difficultyRadioGroup; // Declare the RadioGroup
+
+    private static final String PREFS_NAME = "GameSettings";
+    private static final String PREFS_DIFFICULTY_KEY = "SAVED_DIFFICULTY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +38,13 @@ public class Settings extends AppCompatActivity {
         save = findViewById(R.id.Save);
         home = findViewById(R.id.Home);
         btnLogout = findViewById(R.id.btnlogout);
+        difficultyRadioGroup = findViewById(R.id.difficultyRadioGroup);
 
         //Declaring Shared Preferences
-       sp = getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
+
+        // Restore Difficulty Setting
+        restoreDifficultySetting();
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +61,10 @@ public class Settings extends AppCompatActivity {
                 editor.putString("Phone", phoneStr);
                 editor.putString("Address", addrStr);
 
+                saveDifficultySetting(difficultyRadioGroup.getCheckedRadioButtonId());
+
                 editor.commit();
-                Toast.makeText(Settings.this,"Information Saved", Toast.LENGTH_LONG).show();
+                Toast.makeText(Settings.this, "Information Saved", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -82,9 +94,31 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-
-
+        // Difficulty Selection Listener
+        difficultyRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                saveDifficultySetting(checkedId);
+            }
+        });
     }
+
+        private void restoreDifficultySetting() {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            int savedDifficulty = sharedPreferences.getInt(PREFS_DIFFICULTY_KEY, -1);
+            if (savedDifficulty != -1) {
+                difficultyRadioGroup.check(savedDifficulty);
+            }
+        }
+
+        private void saveDifficultySetting(int checkedId) {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt(PREFS_DIFFICULTY_KEY, checkedId);
+            editor.apply();
+        }
+
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -101,22 +135,7 @@ public class Settings extends AppCompatActivity {
             Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
             stopService(serviceIntent);
         }
-    }
-         @Override
-    protected void onPause() {
-        super.onPause();
 
-        // Check if the user is going back to the main activity
-        if (!isChangingConfigurations() && !isFinishing()) {
-            // The user is navigating back to the main activity
-            // Start the BackgroundMusicService if it's not already running
-            Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
-            startService(serviceIntent);
-        } else {
-            // The user is exiting the app or changing configurations
-            // Stop the BackgroundMusicService
-            Intent serviceIntent = new Intent(this, BackgroundMusicService.class);
-            stopService(serviceIntent);
-        }
     }
+
 }

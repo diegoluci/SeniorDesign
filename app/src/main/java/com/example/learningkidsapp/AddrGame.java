@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.os.CountDownTimer;
+
+import java.util.Locale;
 
 public class AddrGame extends AppCompatActivity {
 
@@ -23,6 +27,10 @@ public class AddrGame extends AppCompatActivity {
     String StreetName;
     String StreetType;
 
+    TextView timerTextView;
+    CountDownTimer countDownTimer;
+    long timeLeftInMillis = 60000; // 60 seconds
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +41,12 @@ public class AddrGame extends AppCompatActivity {
         question = findViewById(R.id.question);
         UserAnswer = findViewById(R.id.answer);
         check = findViewById(R.id.check);
+
+        timerTextView = findViewById(R.id.timerTextView);
+
+        // Start the timer
+        startTimer();
+
 
         //Fetching Data From MyUserPrefs (Stored Data from Settings.java)
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
@@ -89,8 +103,44 @@ public class AddrGame extends AppCompatActivity {
 
 
 
+    }
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
 
+            public void onFinish() {
+                // Code to handle when the timer finishes
+                // Redirect to a "Time's Up" screen or show a message
+                Toast.makeText(AddrGame.this, "Time's up! Try again.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }.start();
+    }
 
+    private void updateCountDownText() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        timerTextView.setText("Timer: " + timeFormatted);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
+
+
+
 }

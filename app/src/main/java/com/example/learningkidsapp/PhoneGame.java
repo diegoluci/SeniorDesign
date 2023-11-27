@@ -6,10 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 public class PhoneGame extends AppCompatActivity {
 
@@ -22,6 +26,10 @@ public class PhoneGame extends AppCompatActivity {
     String Middle = "";
     String Last = "";
 
+    TextView timerTextView;
+    CountDownTimer countDownTimer;
+    long timeLeftInMillis = 60000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +38,11 @@ public class PhoneGame extends AppCompatActivity {
         //Initializing XML Element for users number from settings.java
         TextView userNum;
         userNum = findViewById(R.id.UserNum);
+
+        timerTextView = findViewById(R.id.timerTextView);
+
+        // Initialize and start the CountDownTimer
+        startTimer();
 
         //Fetching Data From MyUserPrefs (Stored Data from Settings.java)
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyUserPrefs", Context.MODE_PRIVATE);
@@ -186,4 +199,29 @@ public class PhoneGame extends AppCompatActivity {
 
 
         }
+
+
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            public void onFinish() {
+                // Code to handle when the timer finishes
+                Toast.makeText(PhoneGame.this, "Time's up! Try again.", Toast.LENGTH_SHORT).show();
+                finish(); // Finish this activity and return to the previous one on the stack
+            }
+        }.start();
+    }
+
+    private void updateCountDownText() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        timerTextView.setText(timeFormatted);
+    }
+
+        
     }
